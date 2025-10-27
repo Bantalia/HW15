@@ -1,5 +1,6 @@
 
 import java.util.Objects;
+
 class Product {
     private int id;          // артикул
     private String name;     // название
@@ -23,10 +24,14 @@ class Product {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;               // сравнение с самим собой
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Product product = (Product) o;
-        // равенство по id и category, учитывая null
+
         return id == product.id && Objects.equals(category, product.category);
     }
 
